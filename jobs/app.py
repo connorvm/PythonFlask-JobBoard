@@ -34,7 +34,7 @@ def employer(employer_id):
 
 
 @app.route('/emlployer/<employer_id>/review', methods=('GET', 'POST'))
-def reveiw(employer_id):
+def review(employer_id):
     if request.method == 'POST':
         review = request.form['review']
         rating = request.form['rating']
