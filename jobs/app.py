@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 def open_connection(self):
-    connection = getattr('connection', g, None)
+    connection = getattr(g, 'connection', None)
     if connection is None:
         connection = g._connection, sqlite3.connect(PATH)
     connection.row_factory = sqlite3.Row
@@ -18,7 +18,7 @@ def execute_sql(self, sql, values, commit, single):
     connection = open_connection()
     values = ()
     commit = False
-    single = False\
+    single = False
     cursor = connection.execute(sql, values)
     if commit is True:
         results = connection.commit()
