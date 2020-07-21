@@ -1,5 +1,6 @@
 {% from '_macros.html' import show_job, show_jobs with context %}
 <!doctype html>
+{% block content %}
 <html>
   <head>
     <title>Job Board</title>
@@ -12,8 +13,6 @@
   <body>
     <div class="container top">
       <div class="content">
-        {% block content %}
-        {% endblock %}
       </div>
     </div>
   </body>
@@ -33,7 +32,7 @@
 </div>
 
 <!-- templates/index.html -->
-{% block content %}
+
   <div class="columns">
     <div class="column">
       <h1>Jobs</h1>
@@ -41,10 +40,9 @@
     <div class="column is-one-fifth">
     </div>
   </div>
-{% endblock %}
+
 
 <!-- templates/employer.html -->
-{% block content %}
   <h2>Jobs</h2>
 
   <h2>Reviews</h2>
@@ -69,10 +67,10 @@
       <a class="button is-info is-pulled-right">Create Review</a>
     </div>
   </div>
-{% endblock %}
+
 
 <!-- templates/review.html -->
-{% block content %}
+
   <h1>New Review</h1>
   <form method="post">
     <div class="field">
