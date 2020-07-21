@@ -24,12 +24,18 @@ def execute_sql(sql, values=(), commit=False, single=False):
         cursor.close()
         return results
 
+@app.route('/employer/<employer_id>')
+def employer(employer_id):
+    employer = execute_sql('SELECT * FROM employer WHERE id=?', [employer_id], single=True)
+    return render_template('employer.html', employer=employer)
+
 
 @app.teardown_appcontext
 def close_connection(exception):
     connection = getattr(g, '_connection', None)
     if connection is not None:
         connection.close()
+
 
 @app.route('/job/<job_id>')
 def job(job_id):
